@@ -1,10 +1,8 @@
-FROM node:18.13.0-alpine as build
-ADD package.json /package.json
-ENV NODE_PATH=/node_modules
-ENV PATH=$PATH:/node_modules/.bin
+FROM node:18.13.0-alpine
 WORKDIR /app
-ADD . /app
+COPY package.json ./
+
 RUN npm install --silent
-RUN npm run
-EXPOSE 80
+COPY . .
+EXPOSE 4000
 CMD [ "npm", "start" ]
