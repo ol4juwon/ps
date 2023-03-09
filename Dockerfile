@@ -5,6 +5,6 @@ ENV PATH=$PATH:/node_modules/.bin
 WORKDIR /app
 ADD . /app
 RUN npm install --silent
-RUN npm run build
+RUN npm run
 EXPOSE 80
 CMD [ "npm", "start" ]
